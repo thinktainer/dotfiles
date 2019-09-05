@@ -1,0 +1,28 @@
+snippet clfs
+abbr urfave/cli.StringFlag
+options indent
+        cli.StringFlag{
+                Name:   "${1}",
+                Value:  "${2}",
+                EnvVar: "${3}",
+                Usage:  "${4}",
+        },
+
+snippet clfb
+abbr urfave/cli.BoolFlag
+options indent
+        cli.BoolFlag{
+                Name:   "${1}",
+                EnvVar: "${2}",
+                Usage:  "${3}",
+        },
+
+snippet clfi
+abbr urfave/cli.IntFlag
+options indent
+        cli.IntFlag{
+                Name:   "${1}",
+                Value:  ${2},
+                EnvVar: "${3}",
+                Usage:  "${4}",
+        },
