@@ -269,6 +269,7 @@ let g:neosnippet#snippets_directory = "~/.config/nvim/snippets"
 
 " yaml
 au FileType yaml set shiftwidth=2
+let g:syntastic_yaml_checkers = ['yamllint']
 
 " gist
 let g:gist_get_multiplefile = 1
