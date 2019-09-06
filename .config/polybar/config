@@ -1,0 +1,371 @@
+;:set syn=dosini
+; Base https://github.com/diyod/dotfiles-stow
+
+; [global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; good colors https://github.com/edgard/dotfiles/blob/master/files/config/polybar/config
+
+[colors]
+orange = #d79921
+darkgray = #8a8a8a
+white = #f9f5d7
+gray = #585858
+black = #090909
+red = #db3f3f
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+background = #111313
+background-alt = #111313
+foreground = #f9f5d7
+foreground-alt = #f9f5d7
+primary = #111313
+secondary = #d79921
+alert = #db2f2f
+;background = #5a00000
+
+[bar/Bar]
+monitor = ${env:MONITOR:eDP1}
+bottom = false
+;wm-restack = i3
+width = 100%
+height = 23
+radius = 0.0
+fixed-center = true
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 1
+module-margin-left = 0
+
+modules-left = i3
+modules-center = volume tray0 backlight
+modules-right = filesystem battery wlan vpncheck wireguard date menu0
+
+background = ${colors.background}
+foreground = ${colors.white}
+
+underline-size = 4
+underline-color = ${colors.white}
+
+tray-detached = true
+;tray-detached = false
+tray-position = center
+
+
+font-0 = "Iosevka:style=Bold:pixelsize=14;0"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=14;0"
+
+;font-0 = SSFD:size=12;0
+;font-1 = FontAwesome:size=12;0
+;font-2 = TakaoGothic:weight=bold:size=12;0
+;font-3 = FontAwesome:size=10;0
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 30
+
+[module/tray0]
+type = custom/text
+content = "                 "
+padding= 10
+width = 10
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+
+label-mounted =  %mountpoint% - %free%
+label-mounted-underline = ${colors.white}
+label-mounted-padding = 1
+
+label-unmounted =
+label-unmounted-foreground = ${colors.black}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+strip-wsnumbers = true
+pin-workspaces = false
+enable-click = true
+
+label-mode-padding = 1
+label-mode-foreground = #db3f3f
+label-mode-background = ${colors.primary}
+
+label-focused = %name%
+label-focused-background =${colors.gray}
+label-focused-underline = ${colors.orange}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+label-urgent = %name%!
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 1
+
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+
+[module/cpu]
+format-label = internal/cpu
+
+format = <label>
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-underline = ${colors.white}
+
+type = internal/cpu
+interval = 2
+label = %{F${colors.white}  %percentage% %{F-}
+label-underline = ${colors.white}
+padding= 2
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+label = %{F${colors.white}  %percentage_used% %{F-}
+label-underline = ${colors.white}
+label-foreground = ${colors.white}
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected = <label-connected>
+format-connected-underline = ${colors.green}
+format-disconnected-underline = ${colors.red}
+
+label-connected = %essid%%downspeed:9%⬇%upspeed:9%⬆
+label-connected-foreground = ${colors.white}
+label-disconnected = 
+label-disconnected-foreground = ${colors.gray}
+
+click-left = echo left %counter%
+click-middle = echo middle %counter%
+click-right = echo right %counter%
+
+format-packetloss = <animation-packetloss> <label-packetloss>
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate_ms = 500
+
+label-packetloss = Packetloss!
+
+
+[module/eth]
+type = internal/network
+interface = eth0
+interval = 3.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected-underline = ${colors.green}
+format-disconnected-underline = ${colors.red}
+
+label-connected = 
+label-disconnected = 
+label-disconnected-foreground = ${colors.red}
+
+
+[module/date]
+type = internal/date
+date-alt =   %A %H:%M
+date =   %b/%d/%y %H:%M
+interval = 5
+format-underline = ${colors.white}
+;format-background = ${colors.black}
+format-foreground = ${colors.white}
+format-padding = 1
+
+
+[module/backlight]
+type = internal/xbacklight
+
+label = Back Light
+format = <bar>
+bar-width = 8
+bar-indicator = 
+bar-indicator-foreground = #ff
+bar-indicator-font = 4
+bar-fill = 
+bar-fill-font = 4
+bar-fill-foreground = ${colors.orange}
+bar-empty = 
+bar-empty-font = 4
+bar-empty-foreground = #55
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <bar-volume>
+
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+label-muted =  muted
+label-muted-foreground = ${colors.gray}
+
+bar-volume-width = 8
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.yellow}
+bar-volume-foreground-5 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 4
+bar-volume-indicator-foreground = ${colors.white}
+bar-volume-fill = 
+bar-volume-fill-font = 4
+bar-volume-empty = 
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = ${colors.gray}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 96
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+label-charging =  %percentage% (%time%)
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+label-discharging = %percentage% (%time%)
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.green}
+format-charging-padding = 1
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.yellow}
+format-discharging-padding = 1
+
+format-full =   <label-full>
+format-full-underline = ${self.format-charging-underline}
+format-full-overline = ${self.format-charging-underline}
+format-full-padding = 1
+format-full-foreground = ${colors.green}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.white}
+
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.white}
+animation-charging-framerate = 500
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+
+format = <label>
+format-underline = ${colors.white}
+format-warn = <label-warn>
+format-warn-underline = ${colors.red}
+
+format-padding = 1
+format-warn-padidng = 1
+
+label =  %temperature%
+label-warn =  %temperature%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #55
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+format-underline = ${colors.white}
+format-padding = 1
+
+menu-0-0 =  exit i3
+menu-0-0-exec = i3-msg exit
+menu-0-1 =  |  restart
+menu-0-1-exec = shutdown -r now
+menu-0-2 =   cancel
+
+
+label-open =  
+label-close =
+
+[module/powermenu]
+type = custom/menu
+
+label-open =  power
+label-open-foreground = ${colors.white}
+label-close =  cancel
+label-close-foreground = ${colors.orange}
+label-separator = |
+label-separator-foreground = #55
+
+[module/vpncheck]
+type = custom/script
+exec = echo vpn 
+exec-if = systemctl is-active openvpn-client@*
+interval = 5
+label = vpn
+format-underline = ${colors.green}
+format-prefix = " "
+format-prefix-foreground = ${colors.white}
+
+[module/wireguard]
+type = custom/script
+exec = echo "$(systemctl list-units wg-quick@* --all | grep -e '\bactive' | sed -e 's/.*for\s\(\S\+\)/\1/')"
+exec-if = systemctl is-active wg-quick@*
+interval = 5
+format-underline = ${colors.green}
+format-prefix = " "
+format-prefix-foreground = ${colors.white}
