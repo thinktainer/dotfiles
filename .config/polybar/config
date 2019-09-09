@@ -27,7 +27,7 @@ alert = #db2f2f
 ;background = #5a00000
 
 [bar/Bar]
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 bottom = false
 ;wm-restack = i3
 width = 100%
@@ -45,7 +45,7 @@ module-margin-left = 0
 
 modules-left = i3
 modules-center = volume tray0 backlight
-modules-right = filesystem battery wlan vpncheck wireguard date menu0
+modules-right = filesystem battery eth wlan vpncheck wireguard date menu0
 
 background = ${colors.background}
 foreground = ${colors.white}
@@ -54,9 +54,7 @@ underline-size = 4
 underline-color = ${colors.white}
 
 tray-detached = true
-;tray-detached = false
 tray-position = center
-
 
 font-0 = "Iosevka:style=Bold:pixelsize=14;0"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=14;0"
@@ -154,7 +152,7 @@ label-foreground = ${colors.white}
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp2s0
 interval = 3.0
 
 format-connected-padding = 1
@@ -186,7 +184,7 @@ label-packetloss = Packetloss!
 
 [module/eth]
 type = internal/network
-interface = eth0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-padding = 1
@@ -195,7 +193,7 @@ format-disconnected-padding = 1
 format-connected-underline = ${colors.green}
 format-disconnected-underline = ${colors.red}
 
-label-connected = 
+label-connected = %downspeed:9%⬇%upspeed:9%⬆
 label-disconnected = 
 label-disconnected-foreground = ${colors.red}
 
@@ -212,10 +210,25 @@ format-padding = 1
 
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
 
-label = Back Light
+card = intel_backlight
+
 format = <bar>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+;label = Back Light
+;format = <bar>
 bar-width = 8
 bar-indicator = 
 bar-indicator-foreground = #ff
