@@ -67,6 +67,7 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#add('wannesm/wmgraphviz.vim')
   call dein#add('iamcco/markdown-preview.vim')
   call dein#add('rust-lang/rust.vim')
+  call dein#add('rhysd/vim-clang-format')
 
   " Required:
   call dein#end()

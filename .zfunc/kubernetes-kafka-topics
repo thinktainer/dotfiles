@@ -1,0 +1,1 @@
+kubectl exec -ti kafka-$(( $RANDOM %5 )) -c broker /opt/kafka/bin/kafka-topics.sh -- --zookeeper=zetcd:2181/kafka $@
