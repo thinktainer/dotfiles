@@ -2,7 +2,7 @@
 let g:go_snippet_engine = "neosnippet"
 let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+"let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 let g:go_list_type = "quickfix"
 let g:go_term_enabled = 1
 au FileType go let maplocalleader=","
@@ -35,9 +35,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
-let g:go_metalinter_command = "golangci-lint"
 let g:go_def_mode = 'gopls'
-let g:go_metalinter_enabled = ['deadcode', 'errcheck', 'ineffassign', 'structcheck', 'typecheck', 'varcheck', 'gosimple', 'govet', 'staticcheck', 'unused', 'golint'] 
 let g:go_metalinter_deadline = "10s"
 let g:go_fmt_options = {
   \ 'gofmt': '-s',
