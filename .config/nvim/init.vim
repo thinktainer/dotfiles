@@ -247,6 +247,8 @@ vnoremap <Leader>64d c <c-r>=system('base64 --decode', @")<cr><esc>
 
 autocmd BufNewFile,BufRead,BufEnter *.jcl,*PP@.[tT][xX][tT],*[jJ][cC]@.[tT][xX][tT] setl ft=jcl
 
+autocmd BufNewFile,BufRead,BufEnter *.md setl et sw=4 ts=4
+
 " Rust
 autocmd BufReadPost *.rs setlocal filetype=rust
 "
