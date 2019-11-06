@@ -1,0 +1,75 @@
+Xft.dpi: 128
+Xft.autohint: false
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+!--------------------------------------------------------------------------------- 
+! URXVT
+!--------------------------------------------------------------------------------- 
+
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+URxvt.perl-ext-common: resize-font
+URxvt.keysym.C-slash:  font-size:show
+URxvt.font-size.step: 1
+!URxvt.font: xft:DejaVu Sans Mono:size=12
+!URxvt.boldFont: xft:DejaVu Sans Mono:size=12:style=Bold
+!URxvt.italicFont: xft:DejaVu Sans Mono:size=12:style=Italic
+!URxvt.boldItalicFont: xft:DejaVu Sans Mono:size=12:style=Bold Italic
+URxvt.font: xft:Iosevka Term:size=12:style=Regular, \
+	xft:DejaVu Sans Mono:style=Regular:size=10, \
+	xft:PowerlineSymbols:style=Medium:size=10, \
+	xft:Pomodoro, \
+	xft:FontAwesome, \
+	xft:Octicons, \
+	xft:Icomoon
+URxvt.boldFont: xft:Iosevka Term:style=Bold:size=12, \
+	xft:DejaVu Sans Mono:style=Regular:size=10, \
+	xft:PowerlineSymbols:style=Medium:size=10, \
+	xft:Pomodoro:size=10, \
+	xft:FontAwesome:size=10, \
+	xft:Octicons:size=10, \
+	xft:Icomoon:size=10
+URxvt.italicFont: xft.Iosevka Term:style=Italic:size=12, \
+	xft:DejaVu Sans Mono:style=Regular:size=10, \
+	xft:PowerlineSymbols:style=Medium:size=10, \
+	xft:Pomodoro:style=Regular:size=10, \
+	xft:FontAwesome:style=Regular:size=10, \
+	xft:Octicons:style=Regular:size=10, \
+	xft:Icomoon:style=Regular:size=10
+URxvt.boldItalicFont: xft.Iosevka Term:style=Bold Italic:size=12, \
+	xft:DejaVu Sans Mono:style=Regular:size=10, \
+	xft:PowerlineSymbols:style=Medium:size=10, \
+	xft:Pomodoro:style=Regular:size=10, \
+	xft:FontAwesome:style=Regular:size=10, \
+	xft:Octicons:style=Regular:size=10, \
+	xft:Icomoon:style=Regular:size=10
+URxvt.skipBuiltinGlyphs: true
+!URxvt.letterSpace: -2
+URxvt.depth: 32
+URxvt.loginShell: false
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right: true
+URxvt.saveLines: 10000
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! Copyright: Dave Davenport
+! ------------------------------------------------------------------------------
+
+! Use extended color scheme
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
+! Color scheme for urgent row
+rofi.color-urgent:                   argb:00000000, #f99, argb:11FFFFFF, #f99,#333
+! Color scheme for active row
+rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#333
+! Color scheme window
+rofi.color-window:                   argb:ee333333, #1aa,#1aa
+! Separator style (none, dash, solid)
+rofi.separator-style:                dash
+rofi.font:                           Iosevka Bold 16
