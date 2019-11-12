@@ -221,5 +221,5 @@ for_window [class="Skype"] floating enable
 # seq 0 3 | xargs -l1 -I@ compton -b -d :0.@  # Multihead support
 #exec --no-startup-id "compton -b"
 exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
-exec --no-startup-id feh --bg-scale "$HOME/Pictures/simon-matzinger-320332.jpg"
+exec --no-startup-id feh --bg-scale "$HOME/Pictures/wallpapers"
 exec --no-startup-id xfce4-clipman
