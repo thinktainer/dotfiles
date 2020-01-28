@@ -31,13 +31,10 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#add('mattn/gist-vim.git', {'depends': 'mattn/webapi-vim'})
   call dein#add('mattn/webapi-vim')
   call dein#add('scrooloose/nerdcommenter.git')
-  call dein#add('scrooloose/syntastic.git')
   call dein#add('godlygeek/tabular.git')
   call dein#add('pivotal/tmux-config.git')
   call dein#add('bling/vim-airline.git')
   call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('pangloss/vim-javascript.git')
-  call dein#add('mxw/vim-jsx.git')
   call dein#add('tpope/vim-characterize.git')
   call dein#add('tpope/vim-ragtag.git')
   call dein#add('tpope/vim-surround.git')
@@ -50,7 +47,6 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#add('Shougo/denite.nvim.git')
   call dein#add('scrooloose/nerdtree.git')
   call dein#add('majutsushi/tagbar')
-  call dein#add('tomlion/vim-solidity')
   call dein#add('fatih/vim-go', {'branch': 'master'})
   call dein#config('go.vim', {
         \ 'lazy': 1, 'on_event': 'InsertEnter',
@@ -68,10 +64,14 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#add('iamcco/markdown-preview.vim')
   call dein#add('rust-lang/rust.vim')
   call dein#add('rhysd/vim-clang-format')
+  call dein#add('dense-analysis/ale')
 
   " Required:
   call dein#end()
   call dein#save_state()
+
+  " Javascript:
+  source ~/.config/nvim/javascript-init.vim
 endif
 
 
@@ -211,7 +211,6 @@ let g:python_host_prog = '/home/thinktainer/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/home/thinktainer/.pyenv/versions/neovim3/bin/python3'
 "let g:deoplete#sources#jedi#show_docstring = 1
 let NERDTreeIgnore += ['\.pyc$']
-let g:syntastic_python_checkers = ["pep8"]
 
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
@@ -231,7 +230,6 @@ let g:neosnippet#snippets_directory = "~/.config/nvim/snippets"
 
 " yaml
 au FileType yaml set shiftwidth=2
-let g:syntastic_yaml_checkers = ['yamllint']
 
 " gist
 let g:gist_get_multiplefile = 1
@@ -259,6 +257,7 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
       \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
       \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
+      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
       \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -285,6 +284,7 @@ function LC_maps()
     nnoremap <buffer> <silent> <C-]> :call LanguageClient_textDocument_definition()<CR>
     nnoremap <buffer> <silent> <Leader>gr :call LanguageClient_textDocument_rename()<CR>
     nnoremap <buffer> <silent> <Leader>f :call LanguageClient_textDocument_formatting()<CR>
+    nnoremap <buffer> <silent> <Leader>l :call LanguageClient_contextMenu()<CR>
   endif
 endfunction
 
@@ -292,6 +292,38 @@ autocmd FileType * call LC_maps()
 
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 au FileType cucumber set sw=2 ts=2 et
+
+" ALE:
+let g:ale_linters = {
+      \ 'python': ['flake8', 'pylint'],
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['tsserver', 'tslint'],
+      \ 'vue': ['eslint'],
+      \ 'terraform': ['terraform'],
+      \ 'graphql': ['gqlint'],
+      \ 'yaml': ['yamllint'],
+      "\ 'go': ['golangci-lint', 'gopls'],
+\}
+
+let g:ale_fixers = {
+  \ 'javascript': ['eslint'],
+  \ 'typescript': ['prettier', 'tslint'],
+  \ 'vue': ['eslint'],
+  \ 'scss': ['prettier'],
+  \ 'html': ['prettier'],
+  \ 'reason': ['refmt'],
+  \ 'terraform': ['terraform'],
+  \ 'graphql': ['gqlint'],
+  \ 'yaml': ['yamllint'],
+  "\ 'go': ['golangci-lint', 'gopls']
+\}
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_completion_enabled=1
+
+let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
+nnoremap ]r :ALENextWrap<CR>     " move to the next ALE warning / error
+nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 
 try
   source ~/.config/nvim/terminal.vim
