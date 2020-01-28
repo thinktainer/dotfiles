@@ -3,3 +3,6 @@ alias vim=nvim
 alias klast=kubernetes-kafka-last-in-topic
 alias kt=kubernetes-kafka-topics
 alias kc=kubernetes-kafka-consumer-groups
+alias kprod="kubectl --context prod-aws --namespace customer-platform"
+alias kdev="kubectl --context dev-aws --namespace customer-platform"
+

@@ -255,7 +255,7 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 "let g:LanguageClient_autoStart=1
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'go': ['gopls'],
+      "\ 'go': ['gopls'],
       \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
       \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
       \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
@@ -267,11 +267,11 @@ let g:LanguageClient_rootMarkers = {
       \}
 
 " Run gofmt and goimports on save
-let g:LanguageClient_hoverPreview = "Auto"
+"let g:LanguageClient_hoverPreview = "Auto"
 "let g:LanguageClient_selectionUI="location-list"
 "let g:LanguageClient_trace="messages"
 "let g:LanguageClient_diagnosticsEnable=1
-let g:LanguageClient_changeThrottle = 0.00
+let g:LanguageClient_changeThrottle = 0.01
 let g:LanguageClient_windowLogMessageLevel="Warning"
 let g:LanguageClient_loggingLevel='WARN'
 
