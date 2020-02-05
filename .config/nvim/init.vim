@@ -70,10 +70,12 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#end()
   call dein#save_state()
 
+  try
   " Javascript:
   source ~/.config/nvim/javascript-init.vim
+  catch
+  endtry
 endif
-
 
 " Required:
 filetype plugin indent on
@@ -198,7 +200,7 @@ call denite#custom#option('default', {
       \ 'direction': 'dynamictop'
       \})
 
-nnoremap <Leader>b :call denite#start([{'name': 'buffer', 'args': []}])<CR>
+nnoremap <silent> <Leader>b :call denite#start([{'name': 'buffer', 'args': []}])<CR>
 
 
 " terraform
@@ -253,11 +255,11 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 "let g:LanguageClient_autoStart=1
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      "\ 'go': ['gopls'],
-      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
-      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
-      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/node/v10.16.2/bin/javascript-typescript-stdio'],
+      \ 'go': ['gopls'],
+      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
+      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
+      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
+      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/v12.14.1.16.2/bin/typescript-language-server', '--stdio'],
       \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -302,7 +304,7 @@ let g:ale_linters = {
       \ 'terraform': ['terraform'],
       \ 'graphql': ['gqlint'],
       \ 'yaml': ['yamllint'],
-      "\ 'go': ['golangci-lint', 'gopls'],
+      \ 'go': ['golangci-lint', 'gopls'],
 \}
 
 let g:ale_fixers = {
@@ -314,14 +316,13 @@ let g:ale_fixers = {
   \ 'reason': ['refmt'],
   \ 'terraform': ['terraform'],
   \ 'graphql': ['gqlint'],
-  \ 'yaml': ['yamllint'],
   "\ 'go': ['golangci-lint', 'gopls']
 \}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_completion_enabled=1
+let g:ale_completion_enabled=0
 
-let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
+"let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
 nnoremap ]r :ALENextWrap<CR>     " move to the next ALE warning / error
 nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 
