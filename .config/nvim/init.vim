@@ -46,6 +46,7 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
   call dein#add('hashivim/vim-terraform')
   call dein#add('Shougo/denite.nvim.git')
   call dein#add('scrooloose/nerdtree.git')
+  call dein#add('Xuyuanp/nerdtree-git-plugin.git')
   call dein#add('majutsushi/tagbar')
   call dein#add('fatih/vim-go', {'branch': 'master'})
   call dein#config('go.vim', {
@@ -61,20 +62,23 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
         \ })
   call dein#add('cespare/vim-toml')
   call dein#add('wannesm/wmgraphviz.vim')
-  call dein#add('iamcco/markdown-preview.vim')
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'sh -c "cd app & yarn install"' })
   call dein#add('rust-lang/rust.vim')
   call dein#add('rhysd/vim-clang-format')
   call dein#add('dense-analysis/ale')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
+  call dein#add('chrisbra/unicode.vim')
 
   try
   " Javascript:
   source ~/.config/nvim/javascript-init.vim
   catch
   endtry
+  
+  " Required:
+  call dein#end()
+  call dein#save_state()
+
 endif
 
 " Required:
@@ -92,6 +96,8 @@ function! s:base16_customize() abort
   call Base16hi("SpellLocal", "", "", g:base16_cterm0D, g:base16_cterm00, "", "")
   call Base16hi("SpellRare",  "", "", g:base16_cterm0B, g:base16_cterm00, "", "")
 endfunction
+
+set guifont=Iosevka\ Term:h20
 
 augroup on_change_colorschema
   autocmd!
@@ -187,9 +193,18 @@ endif
 "deoplete.nvim recommend
 "set completeopt+=noselect
 let g:deoplete#enable_at_startup=1
-call deoplete#custom#source('LanguageClient', 
-      \ 'min_pattern_length',
-      \ 2)
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#enable_complete_done = 1
+
+"call deoplete#custom#source('LanguageClient', 
+      "\ 'min_pattern_length',
+      "\ 1)
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
@@ -270,7 +285,7 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 "
 "let g:LanguageClient_autoStart=1
 let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ 'rust': ['rust-analyzer'],
       \ 'go': ['gopls'],
       \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
       \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
