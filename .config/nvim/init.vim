@@ -254,6 +254,8 @@ call deoplete#custom#option({
 \ 'auto_refresh_delay': 20,
 \ })
 
+call deoplete#custom#option('iggnore_sources', {'go': ['ale']})
+
 " neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -287,10 +289,12 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rust-analyzer'],
       \ 'go': ['gopls'],
-      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
-      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
-      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v12.14.1/bin/typescript-language-server', '--stdio'],
-      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/v12.14.1.16.2/bin/typescript-language-server', '--stdio'],
+      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'typescript.tsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'typescriptreact': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
       \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -320,6 +324,8 @@ function LC_maps()
     nnoremap <buffer> <silent> <Leader>l :call LanguageClient_contextMenu()<CR>
   endif
 endfunction
+
+let g:LanguageClient_settingsPath = '~/.config/nvim/languageserver-settings.json'
 
 autocmd FileType * call LC_maps()
 
