@@ -5,12 +5,13 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 
 zplug "themes/wedisagree", from:oh-my-zsh, as:theme
 zplug "Tarrasch/zsh-autoenv"
+zplug "lukechilds/zsh-nvm"
 for l in bzr compfix completion correction diagnostics directories\
 	"functions" git grep "history" key-bindings misc nvm prompt_info_functions\
-	spectrum theme-and-appearance; do
+	spectrum theme-and-appearance termsupport; do
 	zplug "lib/${l}", from:oh-my-zsh ;
 done
-oh_my_zsh_plugs=(aws git themes pass kubectl rbenv cargo)
+oh_my_zsh_plugs=(aws git themes pass kubectl rbenv cargo tmux)
 for p in $oh_my_zsh_plugs; do
 	zplug "plugins/${p}", from:oh-my-zsh;
 done
@@ -54,22 +55,11 @@ for func in $^fpath/*(N-.x:t); autoload $func
 # automatically remove duplicates from these arrays
 typeset -U path cdpath fpath manpath
 
-if [[ -r ~/.aliases ]]; then
-	source ~/.aliases
-fi
-
-
 export LYNX_CFG=$HOME/.config/lynx/lynx.cfg
-
-# OPAM configuration
-
-#export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-#. /home/thinktainer/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export LIBVIRT_DEFAULT_URI=qemu:///system
 
 zplug load
-#source /usr/share/nvm/init-nvm.sh
 
 if type "etcdctl" > /dev/null; then
 	export ETCDCTL_API=3
@@ -83,7 +73,4 @@ if (( $+commands[task] )); then
 	echo "your tasks"
 	task next
 fi
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+unalias k

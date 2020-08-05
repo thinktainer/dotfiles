@@ -1,0 +1,15 @@
+profile=$1;
+
+function setprofile () {
+	pacmd set-card-profile bluez_card.4C_87_5D_09_8E_0C $1;
+}
+
+
+case $profile in
+	music)
+		setprofile a2dp_sink
+		;;
+	call)
+		setprofile headset_head_unit
+		;;
+esac

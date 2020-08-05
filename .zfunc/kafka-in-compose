@@ -1,0 +1,3 @@
+cmd=$1;
+shift;
+docker-compose -f resources/docker-compose.yml exec kafka-$(( $RANDOM % 3 )) /opt/kafka/bin/$cmd $@;

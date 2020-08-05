@@ -1,1 +1,1 @@
-kubectl exec -ti kafka-$(( $RANDOM %5 )) -c broker /opt/kafka/bin/kafka-run-class.sh kafka.tools.GetOffsetShell -- --broker-list localhost:9092 --time -1 $@
+kubectl exec -ti kafka-$(( $RANDOM %5 )) -c broker -- /opt/kafka/bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --time -1 $@
