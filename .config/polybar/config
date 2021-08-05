@@ -1,7 +1,7 @@
 ;:set syn=dosini
 ; Base https://github.com/diyod/dotfiles-stow
 
-; [global/wm]
+[global/wm]
 margin-top = 0
 margin-bottom = 0
 

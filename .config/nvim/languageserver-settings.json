@@ -1,6 +1,7 @@
 {
   "gopls": {
     "usePlaceholders": true,
-    "completeUnimported": true
+    "completeUnimported": true,
+    "buildFlags": ["-tags=integration,mage"]
   }
 }

@@ -11,7 +11,7 @@ for l in bzr compfix completion correction diagnostics directories\
 	spectrum theme-and-appearance termsupport; do
 	zplug "lib/${l}", from:oh-my-zsh ;
 done
-oh_my_zsh_plugs=(aws git themes pass kubectl rbenv cargo tmux)
+oh_my_zsh_plugs=(aws archlinux git themes pass kubectl rbenv cargo tmux)
 for p in $oh_my_zsh_plugs; do
 	zplug "plugins/${p}", from:oh-my-zsh;
 done

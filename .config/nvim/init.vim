@@ -66,8 +66,10 @@ if dein#load_state('/home/thinktainer/.local/share/dein')
 					\ 'build': 'sh -c "cd app & yarn install"' })
   call dein#add('rust-lang/rust.vim')
   call dein#add('rhysd/vim-clang-format')
-  call dein#add('dense-analysis/ale')
+  "call dein#add('dense-analysis/ale')
   call dein#add('chrisbra/unicode.vim')
+  call dein#add('vimwiki/vimwiki')
+  call dein#add('paretje/nvim-man')
 
   try
   " Javascript:
@@ -232,6 +234,8 @@ call denite#custom#option('default', {
       \})
 
 nnoremap <silent> <Leader>b :call denite#start([{'name': 'buffer', 'args': []}])<CR>
+nnoremap <silent> <Leader>g :call denite#start([{'name': 'grep', 'args': []}])<CR>
+
 
 
 " terraform
@@ -254,7 +258,7 @@ call deoplete#custom#option({
 \ 'auto_refresh_delay': 20,
 \ })
 
-call deoplete#custom#option('iggnore_sources', {'go': ['ale']})
+"call deoplete#custom#option('iggnore_sources', {'go': ['ale']})
 
 " neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -289,12 +293,12 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rust-analyzer'],
       \ 'go': ['gopls'],
-      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
-      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
-      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
-      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
-      \ 'typescript.tsx': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
-      \ 'typescriptreact': ['/home/thinktainer/.nvm/versions/node/v14.7.0/bin/typescript-language-server', '--stdio'],
+      \ 'javascript': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
+      \ 'javascript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
+      \ 'typescript': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
+      \ 'typescript.jsx': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
+      \ 'typescript.tsx': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
+      \ 'typescriptreact': ['/home/thinktainer/.nvm/versions/node/v14.17.3/bin/typescript-language-server', '--stdio'],
       \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -333,35 +337,35 @@ let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 au FileType cucumber set sw=2 ts=2 et
 
 " ALE:
-let g:ale_linters = {
-      \ 'python': ['flake8', 'pylint'],
-      \ 'javascript': ['eslint'],
-      \ 'typescript': ['tsserver', 'tslint'],
-      \ 'vue': ['eslint'],
-      \ 'terraform': ['terraform'],
-      \ 'graphql': ['gqlint'],
-      \ 'yaml': ['yamllint'],
-      \ 'go': ['golangci-lint', 'gopls'],
-\}
+"let g:ale_linters = {
+      "\ 'python': ['flake8', 'pylint'],
+      "\ 'javascript': ['eslint'],
+      "\ 'typescript': ['tsserver', 'tslint'],
+      "\ 'vue': ['eslint'],
+      "\ 'terraform': ['terraform'],
+      "\ 'graphql': ['gqlint'],
+      "\ 'yaml': ['yamllint'],
+      "\ 'go': ['golangci-lint', 'gopls'],
+"\}
 
-let g:ale_fixers = {
-  \ 'javascript': ['eslint'],
-  \ 'typescript': ['prettier', 'tslint'],
-  \ 'vue': ['eslint'],
-  \ 'scss': ['prettier'],
-  \ 'html': ['prettier'],
-  \ 'reason': ['refmt'],
-  \ 'terraform': ['terraform'],
-  \ 'graphql': ['gqlint'],
-  "\ 'go': ['golangci-lint', 'gopls']
-\}
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_completion_enabled=0
+"let g:ale_fixers = {
+  "\ 'javascript': ['eslint'],
+  "\ 'typescript': ['prettier', 'tslint'],
+  "\ 'vue': ['eslint'],
+  "\ 'scss': ['prettier'],
+  "\ 'html': ['prettier'],
+  "\ 'reason': ['refmt'],
+  "\ 'terraform': ['terraform'],
+  "\ 'graphql': ['gqlint'],
+  ""\ 'go': ['golangci-lint', 'gopls']
+"\}
+"let g:ale_fix_on_save = 1
+"let g:ale_javascript_prettier_use_local_config = 1
+"let g:ale_completion_enabled=0
 
 "let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
-nnoremap ]r :ALENextWrap<CR>     " move to the next ALE warning / error
-nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
+"nnoremap ]r :ALENextWrap<CR>     " move to the next ALE warning / error
+"nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 
 try
   source ~/.config/nvim/terminal.vim
