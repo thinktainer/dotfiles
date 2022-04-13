@@ -10,17 +10,10 @@ vim.cmd('source ~/.vimrc_background')
 
 vim.cmd([[
 augroup GoFormatting
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
 autocmd BufWritePre *.go lua GoImports(1000)
 augroup END
-augroup RustFormatting
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
-augroup END
-augroup LuaFormatting
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync()
-augroup END
-augroup TypescriptFormatting
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync()
+augroup Formatting
+autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 augroup END
 autocmd FileType go setlocal ts=2 sw=2 noet nolist
 autocmd Filetype go setlocal tabstop=2
