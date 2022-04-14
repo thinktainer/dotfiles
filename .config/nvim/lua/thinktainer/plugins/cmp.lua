@@ -1,3 +1,4 @@
+local P = {}
 local cmp = require "cmp"
 local lspkind = require "lspkind"
 
@@ -105,10 +106,16 @@ cmp.setup.cmdline(':', {
   })
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'gopls', 'sumneko_lua', 'tsserver', 'yamlls', 'rust_analyzer', 'terraformls' }
-for _, server in pairs(servers) do
-  require('lspconfig')[server].setup {
-    capabilities = capabilities
-  }
+P.updateCapabilities = function(capabilities)
+  return require('cmp_nvim_lsp').update_capabilities(capabilities)
 end
+
+return P
+
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local servers = { 'gopls', 'sumneko_lua', 'tsserver', 'yamlls', 'rust_analyzer', 'terraformls' }
+-- for _, server in pairs(servers) do
+--   require('lspconfig')[server].setup {
+--     capabilities = capabilities
+--   }
+-- end

@@ -1,4 +1,5 @@
-require('thinktainer.lsp.keymaps')
+local keymaps = require('thinktainer.lsp.keymaps')
+local cmp = require('thinktainer.plugins.cmp')
 
 function SetupServer(name, config)
   config = config or DefaultServerConfig()
@@ -18,11 +19,13 @@ end
 function DefaultServerConfig()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities = cmp.updateCapabilities(capabilities)
+
   return {
     -- enable snippet support
     capabilities = capabilities,
     -- map buffer local keybindings when the language server attaches
-    on_attach = LSPKeymaps,
+    on_attach = keymaps.on_attach,
     flags = {
       debounce_text_changes = 500,
     }
