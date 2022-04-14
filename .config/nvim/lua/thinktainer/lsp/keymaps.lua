@@ -14,5 +14,6 @@ LSPKeymaps = function(_, bufnr)
   BufNMap(bufnr, '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>")
   BufVMap(bufnr, '<space>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>")
   BufNMap(bufnr, '<leader>dq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
-
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
 end

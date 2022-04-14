@@ -1,14 +1,17 @@
 -- Server setup
-local server_name = 'gopls'
+local server_name = 'gopls';
 local function ServerConfig()
   local config = DefaultServerConfig()
+  local util = require "lspconfig/util"
+  config.root_dir = util.root_pattern("go.work", "go.mod", ".git")
   config.settings = {
     gopls = {
       usePlaceholders = true,
       gofumpt = true,
+      staticcheck = true,
       semanticTokens = true,
     }
-  }
+  };
   return config
 end
 
@@ -16,7 +19,7 @@ SetupServer(server_name, ServerConfig())
 
 -- Imports
 function GoImports(timeout_ms)
-  local context = {only = {"source.organizeImports"}}
+  local context = { only = { "source.organizeImports" } }
   vim.validate { context = { context, "t", true } }
 
   local params = vim.lsp.util.make_range_params()
