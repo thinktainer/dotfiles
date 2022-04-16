@@ -6,7 +6,7 @@ function SetupServer(name, config)
   local lsp_installer_servers = require('nvim-lsp-installer.servers')
   local server_available, server = lsp_installer_servers.get_server(name)
   if server_available then
-    server:on_ready(function ()
+    server:on_ready(function()
       server:setup(config)
     end)
     if not server:is_installed() then
@@ -27,7 +27,7 @@ function DefaultServerConfig()
     -- map buffer local keybindings when the language server attaches
     on_attach = keymaps.on_attach,
     flags = {
-      debounce_text_changes = 500,
+      debounce_text_changes = 250,
     }
   }
 end

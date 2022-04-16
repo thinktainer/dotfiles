@@ -8,17 +8,6 @@ vim.cmd('let base16colorspace=256')
 vim.cmd('source ~/.config/nvim/general.vim')
 vim.cmd('source ~/.vimrc_background')
 
-vim.api.nvim_command([[
-augroup GoFormatting
-autocmd BufWritePre *.go lua GoImports(1000)
-augroup END
-augroup TextFormatting
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-augroup END
-autocmd FileType go setlocal ts=2 sw=2 noet nolist
-autocmd Filetype go setlocal tabstop=2
-]])
-
 -- Snippets key bindings
 vim.api.nvim_set_keymap('i', '<C-j>', "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'", {
   silent = true,

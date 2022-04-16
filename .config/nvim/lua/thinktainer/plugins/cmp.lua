@@ -107,7 +107,8 @@ cmp.setup.cmdline(':', {
 })
 
 P.updateCapabilities = function(capabilities)
-  return require('cmp_nvim_lsp').update_capabilities(capabilities)
+  local caps = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  return caps
 end
 
 return P
