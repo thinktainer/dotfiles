@@ -1,6 +1,6 @@
 local P = {}
-local cmp = require "cmp"
-local lspkind = require "lspkind"
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 
 cmp.setup {
   mapping = {
@@ -68,16 +68,8 @@ cmp.setup {
 
   formatting = {
     format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[api]",
-        path = "[path]",
-        luasnip = "[snip]",
-        gh_issues = "[issues]",
-        tn = "[TabNine]",
-      },
+      mode = 'symbol_text',
+      symbols = 'default',
     },
   },
 
