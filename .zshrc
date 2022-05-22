@@ -1,9 +1,9 @@
 # Lines configured by zsh-newuser-install
 
 # zplug plugins
-export ZPLUG_HOME=$(brew --prefix)/opt/zplug
-source $ZPLUG_HOME/init.zsh
-# source /usr/share/zsh/scripts/zplug/init.zsh 
+# export ZPLUG_HOME=/usr/share/zsh/scripts/zplug/
+# source $ZPLUG_HOME/init.zsh
+source /usr/share/zsh/scripts/zplug/init.zsh
 
 zplug "themes/wedisagree", from:oh-my-zsh, as:theme
 zplug "Tarrasch/zsh-autoenv"
