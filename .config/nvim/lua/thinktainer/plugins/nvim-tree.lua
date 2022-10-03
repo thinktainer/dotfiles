@@ -1,8 +1,8 @@
-require('thinktainer.utils.keymaps')
+local map = require('thinktainer.utils.keymaps').map
 
-NMap('<C-n>', ':NvimTreeToggle<CR>')
-NMap('<Leader>n', ':NvimTreeFindFile<CR>')
-NMap('<Leader>r', ':NvimTreeRefresh<CR>')
+map('n', '<C-n>', ':NvimTreeToggle<CR>')
+map('n', '<Leader>n', ':NvimTreeFindFile<CR>')
+map('n', '<Leader>r', ':NvimTreeRefresh<CR>')
 
 require('nvim-tree').setup {
   actions = {

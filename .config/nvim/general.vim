@@ -97,8 +97,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 augroup GoFormatting
   au!
-  autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
-  autocmd BufWritePre *.go lua GoImports(1000)
+  autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
 augroup END
 augroup RustFormatting
   au!

@@ -1,3 +1,3 @@
-require('thinktainer.utils.keymaps')
+local map = require('thinktainer.utils.keymaps').map
 
-NMap('<Leader>pr', ':Octo pr list<CR>')
+map('n', '<Leader>pr', ':Octo pr list<CR>')

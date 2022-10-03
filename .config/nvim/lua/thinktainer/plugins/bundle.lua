@@ -19,12 +19,12 @@ return require('packer').startup(function(use)
   use 'chriskempson/base16-vim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- bootstrap LSP configuration
-  use 'williamboman/nvim-lsp-installer' -- install any LSP server
-  use 'hrsh7th/vim-vsnip' -- LSP based snippets
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  use 'onsails/lspkind-nvim' -- add pictograms to autocompletion LSP results
-  use 'tami5/lspsaga.nvim' -- some UI for LSP <- under trial
+  use 'onsails/lspkind-nvim'
+  use 'tami5/lspsaga.nvim'
   use {
     'nvim-treesitter/nvim-treesitter', -- just the best thing
     run = ':TSUpdate'
@@ -65,4 +65,5 @@ return require('packer').startup(function(use)
   }
 
   use 'ThePrimeagen/harpoon'
+  use 'ray-x/go.nvim'
 end)

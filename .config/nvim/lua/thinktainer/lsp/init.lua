@@ -12,6 +12,4 @@ require('thinktainer.lsp.rust')
 require('thinktainer.lsp.terraform')
 require('thinktainer.lsp.typescript')
 require('thinktainer.lsp.yaml')
-
--- WIP
-require('thinktainer.lsp.protobuf')
+require('thinktainer.lsp.pylsp')

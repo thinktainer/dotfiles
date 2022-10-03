@@ -1,12 +1,12 @@
-require('thinktainer.utils.keymaps')
+local map = require('thinktainer.utils.keymaps').map
 
-NMap('<Leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' , '-g', '!vendor'}})<cr>")
-NMap('<Leader>fg', ':Telescope live_grep<CR>')
+map('n', '<Leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' , '-g', '!vendor'}})<cr>")
+map('n', '<Leader>fg', ':Telescope live_grep<CR>')
 
-NMap('<Leader>fb', ':Telescope git_branches<CR>')
-NMap('<Leader>fc', ':Telescope git_commits<CR>')
-NMap('<Leader>gs', ':Telescope git_status<CR>')
-NMap('<Leader>b', ':Telescope buffers<CR>')
+map('n', '<Leader>fb', ':Telescope git_branches<CR>')
+map('n', '<Leader>fc', ':Telescope git_commits<CR>')
+map('n', '<Leader>gs', ':Telescope git_status<CR>')
+map('n', '<Leader>b', ':Telescope buffers<CR>')
 
 require('telescope').setup {
   defaults = {
