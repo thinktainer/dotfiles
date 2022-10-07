@@ -3,7 +3,7 @@
 # zplug plugins
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
-# source /usr/share/zsh/scripts/zplug/init.zsh 
+# source /usr/share/zsh/scripts/zplug/init.zsh
 
 zplug "themes/wedisagree", from:oh-my-zsh, as:theme
 zplug "Tarrasch/zsh-autoenv"
@@ -28,6 +28,7 @@ oh_my_zsh_plugs=(
 for p in $oh_my_zsh_plugs; do
 	zplug "plugins/${p}", from:oh-my-zsh;
 done
+zplug chriskempson/base16-shell, from:github
 # end zplug plugins
 
 bindkey -e
@@ -56,10 +57,7 @@ export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 eval "$(pyenv init -)"
 
-#export TERM='alacritty'
-
-BASE16_SHELL=$HOME/.base16-manager/chriskempson/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+export TERM='alacritty'
 
 fpath=(~/.zfunc $fpath)
 # Autoload all shell functions from all directories in $fpath (following
@@ -103,8 +101,5 @@ if (( $+commands[task] )); then
 	task next
 fi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# gcloud gke auth
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
