@@ -1,9 +1,5 @@
 alias tmn=tmux-new-session-detached
 alias vim=nvim
-alias klast=kubernetes-kafka-last-in-topic
-alias kt=kubernetes-kafka-topics
-alias kc=kubernetes-kafka-consumer-groups
-alias kprod="kubectl --context prod-aws"
-alias kdev="kubectl --context dev-aws"
-alias kcc="kubectl config use-context"
-alias circle='printf "https://circleci.com/gh/%s" $(git remote get-url origin | sed -e "s#git@github.com:##" -e "s#\(\.git\)\?\$##") | xargs -L1 xdg-open'
+alias cla="gcloud config configurations activate $@"
+alias tg=terragrunt
+alias tf=terraform
