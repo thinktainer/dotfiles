@@ -15,3 +15,15 @@ require 'go'.setup({
   lsp_on_attach = true, -- use on_attach from go.nvim
   dap_debug = true,
 })
+
+local go_grp = vim.api.nvim_create_augroup("go", { clear = true })
+
+vim.api.nvim_create_autocmd(
+  { "BufRead", "BufNewFile" }, {
+  group = go_grp,
+  pattern = { "*.go" },
+  callback = function()
+    vim.keymap.set('n', '<Leader>a', ':GoAlt<CR>')
+    vim.keymap.set('n', '<Leader>t', ':GoTestFunc<CR>')
+  end
+})

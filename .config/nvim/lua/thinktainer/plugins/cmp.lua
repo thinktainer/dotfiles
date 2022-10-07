@@ -38,6 +38,13 @@ cmp.setup {
         fallback()
       end
     end,
+    ["<c-p>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
     ["<S-Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
