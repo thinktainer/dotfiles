@@ -219,6 +219,11 @@ _G.packer_plugins = {
     path = "/Users/martin.schinz/.local/share/nvim/site/pack/packer/start/vim-githubinator",
     url = "https://github.com/danishprakash/vim-githubinator"
   },
+  ["vim-rego"] = {
+    loaded = true,
+    path = "/Users/martin.schinz/.local/share/nvim/site/pack/packer/start/vim-rego",
+    url = "https://github.com/tsandall/vim-rego"
+  },
   ["vim-sensible"] = {
     loaded = true,
     path = "/Users/martin.schinz/.local/share/nvim/site/pack/packer/start/vim-sensible",

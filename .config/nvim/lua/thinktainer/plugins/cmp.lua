@@ -85,7 +85,7 @@ cmp.setup {
 }
 
 P.updateCapabilities = function(capabilities)
-  local caps = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  local caps = require('cmp_nvim_lsp').default_capabilities(capabilities)
   return caps
 end
 

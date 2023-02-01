@@ -66,4 +66,5 @@ return require('packer').startup(function(use)
 
   use 'ThePrimeagen/harpoon'
   use 'ray-x/go.nvim'
+  use 'tsandall/vim-rego'
 end)
