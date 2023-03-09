@@ -1,5 +1,5 @@
 -- Server setup
-local server_name = 'sumneko_lua'
+local server_name = 'lua_ls'
 local function ServerConfig()
   local config = DefaultServerConfig()
   config.settings = {

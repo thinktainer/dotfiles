@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-sensible'
   use 'danishprakash/vim-githubinator'
+  use 'tpope/vim-rhubarb'
   use 'tpope/vim-fugitive'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
