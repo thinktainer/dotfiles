@@ -1,5 +1,3 @@
-local cmp = require('thinktainer.plugins.cmp')
-
 local on_attach = function(_, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
@@ -26,10 +24,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = cmp.updateCapabilities(capabilities)
 end
 
 return on_attach

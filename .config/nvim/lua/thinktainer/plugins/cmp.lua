@@ -7,9 +7,7 @@ cmp.setup {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true,
-    }),
-
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<c-space>"] = cmp.mapping {
       i = cmp.mapping.complete(),
       c = function(
@@ -24,13 +22,11 @@ cmp.setup {
         end
       end,
     },
-
     -- Testing
     ["<c-q>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-
     ["<c-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -58,7 +54,7 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "path" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer",  keyword_length = 5 },
     { name = "nvim_lua" },
   },
 
@@ -78,7 +74,6 @@ cmp.setup {
   experimental = {
     -- I like the new menu better! Nice work hrsh7th
     native_menu = false,
-
     -- Let's play with this for a day or two
     ghost_text = true,
   },
