@@ -1,8 +1,10 @@
 -- Server setup
-local server_name = 'terraformls'
-local function ServerConfig()
-  local config = DefaultServerConfig()
-  config.prefillRequiredFields = true
-end
+require("mason-lspconfig").setup {
+  ensure_installed = { "terraformls" },
+}
 
-SetupServer(server_name, ServerConfig())
+local nvim_lsp = require 'lspconfig'
+
+nvim_lsp['terraformls'].setup {
+  on_attach = require('thinktainer.lsp.server_config')
+}

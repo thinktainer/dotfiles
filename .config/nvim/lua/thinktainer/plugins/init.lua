@@ -8,4 +8,8 @@ require('thinktainer.plugins.nvim-tree')
 require('thinktainer.plugins.octo-nvim')
 require('thinktainer.plugins.telescope')
 require('thinktainer.plugins.lualine')
-require('thinktainer.plugins.go')
+
+require 'lspconfig'
+require("mason").setup()
+require('mason-lspconfig').setup {}
+-- require('thinktainer.plugins.go')

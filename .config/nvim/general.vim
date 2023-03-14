@@ -107,19 +107,19 @@ augroup GoFormatting
 augroup END
 augroup RustFormatting
   au!
-  autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePre *.rs lua vim.lsp.buf.format()
 augroup END
 augroup LuaFormatting
   au!
-  autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePre *.lua lua vim.lsp.buf.format()
 augroup END
 augroup TypescriptFormatting
   au!
-  autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePre *.ts lua vim.lsp.buf.format()
 augroup END
 augroup TerraformFormatting
   au!
-  autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePre *.tf lua vim.lsp.buf.format()
 augroup END
 autocmd FileType go setlocal ts=2 sw=2 noet nolist
 autocmd Filetype go setlocal tabstop=2

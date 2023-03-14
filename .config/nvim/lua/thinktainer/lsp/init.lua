@@ -1,7 +1,7 @@
 vim.lsp.handlers["window/showMessage"] = require "thinktainer.lsp.show_message"
 
 require('thinktainer.lsp.keymaps')
-require('thinktainer.lsp.server_config')
+-- require('thinktainer.lsp.server_config')
 
 -- LSP servers configurations
 require('thinktainer.lsp.bash')
