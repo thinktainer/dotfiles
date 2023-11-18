@@ -45,13 +45,14 @@ fi
 export GOPATH=$HOME/go
 
 path=(
-	$GOPATH/bin
-	$HOME/.rbenv/bin
-	$HOME/.rbenv/shims
-	$HOME/.pyenv/shims
-	$HOME/.cargo/bin
-	/opt/homebrew/opt/postgresql@13/bin
-	$path
+  $GOPATH/bin
+  $HOME/.rbenv/bin
+  $HOME/.rbenv/shims
+  $HOME/.pyenv/shims
+  $HOME/.cargo/bin
+  /opt/homebrew/opt/postgresql@13/bin
+  "${KREW_ROOT:-$HOME/.krew}/bin"
+  $path
 )
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -100,6 +101,9 @@ if (( $+commands[task] )); then
 	echo "your tasks"
 	task next
 fi
+
+# mac os specific
+ulimit -n 10240
 
 # gcloud gke auth
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True

@@ -3,3 +3,4 @@ alias vim=nvim
 alias cla="gcloud config configurations activate $@"
 alias tg=terragrunt
 alias tf=terraform
+alias tlogin='gcloud config configurations activate default && gcloud auth application-default login'
