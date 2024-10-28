@@ -22,8 +22,10 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 scale 1.5 pos 2560 1080 res 2560x1440
-output HDMI-A-1 scale 1.5 pos 0 0 res 3840x2160
+# output eDP-1 scale 1.5 pos 2560 1080 res 2560x1440
+# output HDMI-A-1 scale 1.5 pos 0 0 res 3840x2160
+output eDP-1 scale 1.3 pos 0 0 res 2560x1440
+# output HDMI-A-1 scale 1.5 pos 0 0 res 3840x2160
 #output * bg ~/Pictures/wallpapers/Berlin City Silhouette.png fill
 #
 # Example configuration:
@@ -67,7 +69,7 @@ input "*" {
 
 input "1739:0:Synaptics_TM3288-011" {
     tap enabled
-    natural_scroll enabled
+    natural_scroll disabled
 }
 
 ### Key bindings
@@ -78,13 +80,14 @@ input "1739:0:Synaptics_TM3288-011" {
     # Start a terminal
     set $wofi "wofi --show drun"
     bindsym $mod+Tab exec $wofi
+    set $wofirun "wofi --show run"
     bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $wofirun
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

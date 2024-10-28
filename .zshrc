@@ -44,13 +44,14 @@ fi
 export GOPATH=$HOME/go
 
 path=(
-	$GOPATH/bin
-	$HOME/.rbenv/bin
-	$HOME/.rbenv/shims
-	$HOME/.pyenv/shims
-	$HOME/.cargo/bin
-	/opt/homebrew/opt/postgresql@13/bin
-	$path
+  $GOPATH/bin
+  $HOME/.rbenv/bin
+  $HOME/.rbenv/shims
+  $HOME/.pyenv/shims
+  $HOME/.cargo/bin
+  /opt/homebrew/opt/postgresql@13/bin
+  $path
+  /opt/nwjs
 )
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
