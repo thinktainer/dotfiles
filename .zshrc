@@ -1,5 +1,6 @@
 # Lines configured by zsh-newuser-install
 
+zstyle ':omz:alpha:lib:git' async-prompt no  # https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#disable-async-git-prompt
 # zplug plugins
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -48,15 +49,15 @@ path=(
   $GOPATH/bin
   $HOME/.rbenv/bin
   $HOME/.rbenv/shims
-  $HOME/.pyenv/shims
   $HOME/.cargo/bin
   /opt/homebrew/opt/postgresql@13/bin
   "${KREW_ROOT:-$HOME/.krew}/bin"
+  $HOME/bin
+  /opt/homebrew/opt/python@3.11/libexec/bin
   $path
 )
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-eval "$(pyenv init -)"
 
 export TERM='alacritty'
 
@@ -107,3 +108,12 @@ ulimit -n 10240
 
 # gcloud gke auth
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+export PYTHONPYCACHEPREFIX=$HOME/.cache/cpython/
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+set -o allexport
+source ~/.upvest.env
+set +o allexport
