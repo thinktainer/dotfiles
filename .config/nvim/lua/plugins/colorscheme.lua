@@ -6,7 +6,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "base16-ashes",
+      colorscheme = "base16-atelier-savanna-light",
     },
   },
 }
