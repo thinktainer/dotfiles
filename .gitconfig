@@ -1,0 +1,32 @@
+# This is Git's per-user configuration file.
+[core]
+	excludesfile = ~/.gitignore
+[user]
+	name = Martin Schinz
+	email = me@thinktainer.com
+	signingkey = 2DE64BCF
+[includeIf "gitdir:upvest/"]
+	path = ~/code/upvest/.gitconfig
+[pull]
+	rebase = false
+[commit]
+	gpgsign = true
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff
+[tag]
+	gpgSign = true
+[pager]
+	branch = false
+[github]
+	user = thinktainer
+[url "ssh://git@github.com/toknapp"]
+  insteadof=https://github.com/toknapp
+[gpg]
+	program = /opt/homebrew/bin/gpg
