@@ -1,0 +1,7 @@
+[core]
+project = dta-unstable-71c8
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = dta-unstable-ci-cd-sa@dta-unstable-ci-cd-4458.iam.gserviceaccount.com
+

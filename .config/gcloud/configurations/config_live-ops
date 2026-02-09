@@ -1,0 +1,7 @@
+[core]
+project = ops-live-dff7
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ops-live-ci-cd-sa@ops-live-ci-cd-908a.iam.gserviceaccount.com
+

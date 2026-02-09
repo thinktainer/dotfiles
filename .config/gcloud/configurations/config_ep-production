@@ -1,0 +1,7 @@
+[core]
+project = ep-production-cicd-uv5v
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ep-production-admin@ep-production-cicd-uv5v.iam.gserviceaccount.com
+

@@ -1,0 +1,10 @@
+[core]
+project = ecx-staging-f675
+account = martin.schinz@upvest.co
+
+[compute]
+region = europe-west3
+
+[auth]
+impersonate_service_account = ecx-staging-ci-cd-sa@ecx-staging-ci-cd-4d93.iam.gserviceaccount.com
+

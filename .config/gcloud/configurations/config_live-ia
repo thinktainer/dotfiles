@@ -1,0 +1,14 @@
+[auth]
+impersonate_service_account = ia-live-ci-cd-sa@ia-live-ci-cd-01aa.iam.gserviceaccount.com
+
+[core]
+account = martin.schinz@upvest.co
+project = ia-live-4632
+disable_usage_reporting = False
+
+[container]
+cluster = gke_ia-live-4632_europe-west3_investment-api
+
+[compute]
+region = europe-west3
+

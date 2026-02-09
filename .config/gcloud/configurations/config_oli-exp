@@ -1,0 +1,7 @@
+[core]
+project = oli-exp-252v
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ep-automation-admin@ep-automation-a3f8.iam.gserviceaccount.com
+

@@ -1,0 +1,11 @@
+[container]
+cluster = ops-ash5gi
+
+[core]
+project = upvest-ops
+account = martin.schinz.prod@upvest.co
+
+[compute]
+zone = europe-west3-c
+region = europe-west3
+

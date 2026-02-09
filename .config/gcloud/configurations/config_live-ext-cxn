@@ -1,0 +1,7 @@
+[core]
+account = martin.schinz@upvest.co
+project = ecx-live-9949
+
+[auth]
+impersonate_service_account = ecx-live-ci-cd-sa@ecx-live-ci-cd-b214.iam.gserviceaccount.com
+

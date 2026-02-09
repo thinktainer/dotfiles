@@ -1,0 +1,11 @@
+[core]
+account = martin.schinz@upvest.co
+project = upvest-platform
+disable_usage_reporting = False
+
+[compute]
+region = europe-west3
+zone = europe-west3-c
+
+[auth]
+

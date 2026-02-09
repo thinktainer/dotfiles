@@ -1,0 +1,7 @@
+[auth]
+impersonate_service_account = ecx-unstable-ci-cd-sa@ecx-unstable-ci-cd-10bc.iam.gserviceaccount.com
+
+[core]
+project = ecx-unstable-3431
+account = martin.schinz@upvest.co
+

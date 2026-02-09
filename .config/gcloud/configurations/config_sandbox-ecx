@@ -1,0 +1,10 @@
+[core]
+account = martin.schinz@upvest.co
+project = ecx-sandbox-14a0
+
+[auth]
+impersonate_service_account = ecx-sandbox-ci-cd-sa@ecx-sandbox-ci-cd-fec4.iam.gserviceaccount.com
+
+[compute]
+region = europe-west3
+

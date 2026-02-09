@@ -1,0 +1,7 @@
+[core]
+project = ep-automation-a3f8
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ep-automation-admin@ep-automation-a3f8.iam.gserviceaccount.com
+

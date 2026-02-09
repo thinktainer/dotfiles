@@ -1,0 +1,10 @@
+[core]
+account = martin.schinz@upvest.co
+project = ops-staging-6634
+
+[auth]
+impersonate_service_account = ops-staging-ci-cd-sa@ops-staging-ci-cd-e55c.iam.gserviceaccount.com
+
+[compute]
+region = europe-west3
+

@@ -1,0 +1,7 @@
+[core]
+project = ia-argocd-prod-1z2x3
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ia-argocd-admin@ep-production-cicd-uv5v.iam.gserviceaccount.com
+

@@ -1,0 +1,7 @@
+[core]
+project = gha-runners-prod-03
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = gha-runners-admin@ep-production-cicd-uv5v.iam.gserviceaccount.com
+

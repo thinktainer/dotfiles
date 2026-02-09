@@ -1,0 +1,8 @@
+[core]
+project = upvest-vpn
+account = martin.schinz.production@upvest.co
+
+[compute]
+region = europe-west3
+zone = europe-west3-c
+

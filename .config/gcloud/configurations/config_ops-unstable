@@ -1,0 +1,13 @@
+[core]
+account = martin.schinz@upvest.co
+project = ops-unstable-d8e4
+
+[container]
+cluster = operations
+
+[compute]
+region = europe-west3
+
+[auth]
+impersonate_service_account = ops-unstable-ci-cd-sa@ops-unstable-ci-cd-3cb3.iam.gserviceaccount.com
+

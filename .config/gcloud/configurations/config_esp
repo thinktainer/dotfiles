@@ -1,0 +1,10 @@
+[core]
+project = esp-dev-327b
+account = martin.schinz@upvest.co
+
+[compute]
+region = europe-west3
+
+[auth]
+impersonate_service_account = esp-dev-ci-cd-sa@esp-dev-ci-cd-1f1d.iam.gserviceaccount.com
+

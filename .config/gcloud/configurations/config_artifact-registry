@@ -1,0 +1,6 @@
+[core]
+account = martin.schinz@upvest.co
+project = artifact-registry
+
+[auth]
+

@@ -1,0 +1,7 @@
+[core]
+project = upvest-tso-connectivity
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = tso-connectivity-admin@upvest-platform.iam.gserviceaccount.com
+

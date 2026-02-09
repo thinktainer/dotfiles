@@ -1,0 +1,7 @@
+[core]
+project = ia-load-testing-22b4
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ia-load-testing-ci-cd-sa@ia-load-testing-ci-cd-4794.iam.gserviceaccount.com
+

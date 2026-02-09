@@ -1,0 +1,13 @@
+[core]
+project = ia-sandbox-54ec
+account = martin.schinz@upvest.co
+
+[compute]
+region = europe-west3
+
+[auth]
+impersonate_service_account = ia-sandbox-ci-cd-sa@ia-sandbox-ci-cd-5648.iam.gserviceaccount.com
+
+[container]
+cluster = gke_ia-sandbox-54ec_europe-west3_investment-api
+

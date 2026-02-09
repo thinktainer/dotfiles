@@ -1,0 +1,13 @@
+[core]
+project = ia-unstable-7263
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ia-unstable-ci-cd-sa@ia-unstable-ci-cd-1510.iam.gserviceaccount.com
+
+[compute]
+region = europe-west3
+
+[container]
+cluster = gke_ia-unstable-7263_europe-west3_investment-api
+

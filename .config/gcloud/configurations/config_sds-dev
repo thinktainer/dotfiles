@@ -1,0 +1,7 @@
+[core]
+project = eng-delivery-dev-b1eb
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ep-development-admin@ep-development-cicd-xfqs.iam.gserviceaccount.com
+

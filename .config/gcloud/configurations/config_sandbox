@@ -1,0 +1,11 @@
+[core]
+project = upvest-production
+account = martin.schinz.prod@upvest.co
+
+[compute]
+region = europe-west3
+zone = europe-west3-c
+
+[container]
+cluster = sandbox-kiows4
+

@@ -1,0 +1,10 @@
+[core]
+project = ep-development-cicd-xfqs
+account = martin.schinz@upvest.co
+
+[auth]
+impersonate_service_account = ep-development-admin@ep-development-cicd-xfqs.iam.gserviceaccount.com
+
+[container]
+cluster = gke_ep-development-cicd-xfqs_europe-west3_xplane-cluster
+

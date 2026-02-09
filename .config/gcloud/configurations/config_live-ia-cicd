@@ -1,0 +1,7 @@
+[core]
+account = martin.schinz@upvest.co
+project = ia-live-ci-cd-625a
+
+[auth]
+impersonate_service_account = ia-live-ci-cd-sa@ia-live-ci-cd-625a.iam.gserviceaccount.com
+

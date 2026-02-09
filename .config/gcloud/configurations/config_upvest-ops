@@ -1,0 +1,8 @@
+[core]
+project = upvest-ops
+account = martin.schinz@upvest.co
+
+[compute]
+region = europe-west3
+zone = europe-west3-c
+

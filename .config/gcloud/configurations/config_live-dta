@@ -1,0 +1,7 @@
+[core]
+account = martin.schinz@upvest.co
+project = dta-live-1048
+
+[auth]
+impersonate_service_account = dta-live-ci-cd-sa@dta-live-ci-cd-53bd.iam.gserviceaccount.com
+

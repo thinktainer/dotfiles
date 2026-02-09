@@ -1,0 +1,13 @@
+[core]
+project = ia-staging-093a
+account = martin.schinz@upvest.co
+
+[container]
+cluster = gke_ia-staging-093a_europe-west3_investment-api
+
+[compute]
+region = europe-west3
+
+[auth]
+impersonate_service_account = ia-staging-ci-cd-sa@ia-staging-ci-cd-8564.iam.gserviceaccount.com
+

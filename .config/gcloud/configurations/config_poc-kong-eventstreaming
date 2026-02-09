@@ -1,0 +1,7 @@
+[core]
+account = martin.schinz@upvest.co
+project = poc-kong-es-01
+
+[auth]
+impersonate_service_account = poc-kong-es-admin@ep-development-cicd-xfqs.iam.gserviceaccount.com
+

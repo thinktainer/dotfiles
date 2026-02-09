@@ -1,0 +1,10 @@
+[core]
+account = martin.schinz@upvest.co
+project = ops-sandbox-de6f
+
+[auth]
+impersonate_service_account = ops-sandbox-ci-cd-sa@ops-sandbox-ci-cd-9f8c.iam.gserviceaccount.com
+
+[compute]
+region = europe-west3
+
