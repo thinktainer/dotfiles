@@ -1,12 +1,12 @@
 return {
   "neovim/nvim-lspconfig",
   opts = function(_, opts)
-
     local extra_schemas = {
       {
         description = "Upvest Service Catalog Schema",
-        url = "file://" .. os.getenv('HOME') .. "/code/upvest/upvest-platform-schema/schema/upvest/v1/service.json",
+        url = "file://" .. os.getenv("HOME") .. "/code/upvest/upvest-platform-schema/schema/upvest/v1/service.json",
         fileMatch = {
+          "upvest-service.yaml",
           "upvest.service.yaml",
           "upvest.service.json",
         },
@@ -21,9 +21,12 @@ return {
           -- lazy-load schemastore when needed
           before_init = function(_, new_config)
             new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas({
-              extra = extra_schemas
-            }))
+            vim.list_extend(
+              new_config.settings.json.schemas,
+              require("schemastore").json.schemas({
+                extra = extra_schemas,
+              })
+            )
           end,
         },
         yamlls = {
@@ -31,12 +34,12 @@ return {
             new_config.settings.yaml.schemas = vim.tbl_deep_extend(
               "force",
               new_config.settings.yaml.schemas or {},
-              require("schemastore").yaml.schemas({extra = extra_schemas})
+              require("schemastore").yaml.schemas({ extra = extra_schemas })
             )
           end,
-        }
+        },
       },
     }
     return vim.tbl_deep_extend("force", opts, my_opts)
-  end
+  end,
 }
